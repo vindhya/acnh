@@ -9,12 +9,8 @@ const MainLayout = ({ children }) => {
         </h1>
         <nav>
           <ul>
-            <li>
-              <Link to={routes.bugs()}>Bugs</Link>
-            </li>
-            <li>
-              <Link to={routes.fish()}>Fish</Link>
-            </li>
+            <li>{/* <Link to={routes.bugs()}>Bugs</Link> */}</li>
+            <li>{/* <Link to={routes.fish()}>Fish</Link> */}</li>
           </ul>
         </nav>
       </header>
