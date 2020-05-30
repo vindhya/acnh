@@ -17,10 +17,14 @@ const Routes = () => {
         page={BugDetailPage}
         name="bugDetail"
       />
-      <Route path="/bugs/new" page={NewBugPage} name="newBug" />
-      <Route path="/bugs/{id:Int}/edit" page={EditBugPage} name="editBug" />
-      <Route path="/bugs/{id:Int}" page={BugPage} name="bug" />
-      <Route path="/bugs" page={BugsPage} name="bugs" />
+      <Route path="/admin/bugs/new" page={NewBugPage} name="newBug" />
+      <Route
+        path="/admin/bugs/{id:Int}/edit"
+        page={EditBugPage}
+        name="editBug"
+      />
+      <Route path="/admin/bugs/{id:Int}" page={BugPage} name="bug" />
+      <Route path="/admin/bugs" page={BugsPage} name="bugs" />
       <Route path="/" page={HomePage} name="home" />
       <Route notfound page={NotFoundPage} />
     </Router>
