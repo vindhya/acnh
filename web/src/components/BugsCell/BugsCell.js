@@ -1,5 +1,4 @@
 import { Link, routes } from '@redwoodjs/router'
-
 import Bugs from 'src/components/Bugs'
 
 export const QUERY = gql`
@@ -26,10 +25,7 @@ export const Empty = () => {
   return (
     <div className="rw-text-center">
       {'No bugs yet. '}
-      <Link
-        to={routes.newBug()}
-        className="rw-link"
-      >
+      <Link to={routes.newBug()} className="rw-link">
         {'Create one?'}
       </Link>
     </div>
