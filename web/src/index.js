@@ -1,9 +1,5 @@
 import { AuthProvider } from '@redwoodjs/auth'
-<<<<<<< HEAD
-import Auth0Client from '@auth0/auth0-spa-js'
-=======
 import netlifyIdentity from 'netlify-identity-widget'
->>>>>>> netlify-identity
 import ReactDOM from 'react-dom'
 import { RedwoodProvider, FatalErrorBoundary } from '@redwoodjs/web'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
