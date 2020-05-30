@@ -19,14 +19,46 @@ const Routes = () => {
       />
       <Route path="/" page={HomePage} name="home" />
       <Private unauthenticated="home">
-        <Route path="/admin/bugs/new" page={NewBugPage} name="newBug" />
         <Route
-          path="/admin/bugs/{id:Int}/edit"
-          page={EditBugPage}
-          name="editBug"
+          path="/admin/bug-critters/new"
+          page={NewBugCritterPage}
+          name="newBugCritter"
         />
-        <Route path="/admin/bugs/{id:Int}" page={BugPage} name="bug" />
-        <Route path="/admin/bugs" page={BugsPage} name="bugs" />
+        <Route
+          path="/admin/bug-critters/{id:Int}/edit"
+          page={EditBugCritterPage}
+          name="editBugCritter"
+        />
+        <Route
+          path="/admin/bug-critters/{id:Int}"
+          page={BugCritterPage}
+          name="bugCritter"
+        />
+        <Route
+          path="/admin/bug-critters"
+          page={BugCrittersPage}
+          name="bugCritters"
+        />
+        <Route
+          path="/admin/fish-critters/new"
+          page={NewFishCritterPage}
+          name="newFishCritter"
+        />
+        <Route
+          path="/admin/fish-critters/{id:Int}/edit"
+          page={EditFishCritterPage}
+          name="editFishCritter"
+        />
+        <Route
+          path="/admin/fish-critters/{id:Int}"
+          page={FishCritterPage}
+          name="fishCritter"
+        />
+        <Route
+          path="/admin/fish-critters"
+          page={FishCrittersPage}
+          name="fishCritters"
+        />
       </Private>
       <Route notfound page={NotFoundPage} />
     </Router>

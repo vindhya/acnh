@@ -2,7 +2,7 @@ import BugDetail from 'src/components/BugDetail'
 
 export const QUERY = gql`
   query {
-    bugs {
+    bugs: bugCritters {
       id
       name
       image
