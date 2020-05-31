@@ -89,11 +89,27 @@ const FishCritterForm = (props) => {
         <FieldError name="location" className="rw-field-error" />
 
         <Label
+          name="shadowSize"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Shadow Size
+        </Label>
+        <TextField
+          name="shadowSize"
+          defaultValue={props.fishCritter?.shadowSize}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+        <FieldError name="shadowSize" className="rw-field-error" />
+
+        <Label
           name="timeStart"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Time start
+          Start Time
         </Label>
         <TextField
           name="timeStart"
@@ -109,7 +125,7 @@ const FishCritterForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Time end
+          End Time
         </Label>
         <TextField
           name="timeEnd"
@@ -121,11 +137,41 @@ const FishCritterForm = (props) => {
         <FieldError name="timeEnd" className="rw-field-error" />
 
         <Label
+          name="timeStartAlt"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Alternate Start Time
+        </Label>
+        <TextField
+          name="timeStartAlt"
+          defaultValue={props.fishCritter?.timeStartAlt}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+        <FieldError name="timeStartAlt" className="rw-field-error" />
+
+        <Label
+          name="timeEndAlt"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Alternate End Time
+        </Label>
+        <TextField
+          name="timeEndAlt"
+          defaultValue={props.fishCritter?.timeEndAlt}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+        <FieldError name="timeEndAlt" className="rw-field-error" />
+
+        <Label
           name="monthsNorthHemi"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Months north hemi
+          Months - Northern Hemisphere
         </Label>
         <TextField
           name="monthsNorthHemi"
@@ -141,7 +187,7 @@ const FishCritterForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Months south hemi
+          Months - Southern Hemisphere
         </Label>
         <TextField
           name="monthsSouthHemi"

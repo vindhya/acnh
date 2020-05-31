@@ -32,7 +32,10 @@ const FishCrittersList = ({ fishCritters }) => {
 
   const onDeleteClick = (id) => {
     if (confirm('Are you sure you want to delete fishCritter ' + id + '?')) {
-      deleteFishCritter({ variables: { id }, refetchQueries: ['FISH_CRITTERS'] })
+      deleteFishCritter({
+        variables: { id },
+        refetchQueries: ['FISH_CRITTERS'],
+      })
     }
   }
 
@@ -46,10 +49,13 @@ const FishCrittersList = ({ fishCritters }) => {
             <th>image</th>
             <th>price</th>
             <th>location</th>
+            <th>shadowSize</th>
             <th>timeStart</th>
             <th>timeEnd</th>
             <th>monthsNorthHemi</th>
             <th>monthsSouthHemi</th>
+            <th>timeStartAlt</th>
+            <th>timeEndAlt</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -61,10 +67,13 @@ const FishCrittersList = ({ fishCritters }) => {
               <td>{truncate(fishCritter.image)}</td>
               <td>{truncate(fishCritter.price)}</td>
               <td>{truncate(fishCritter.location)}</td>
+              <td>{truncate(fishCritter.shadowSize)}</td>
               <td>{truncate(fishCritter.timeStart)}</td>
               <td>{truncate(fishCritter.timeEnd)}</td>
               <td>{truncate(fishCritter.monthsNorthHemi)}</td>
               <td>{truncate(fishCritter.monthsSouthHemi)}</td>
+              <td>{truncate(fishCritter.timeStartAlt)}</td>
+              <td>{truncate(fishCritter.timeEndAlt)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

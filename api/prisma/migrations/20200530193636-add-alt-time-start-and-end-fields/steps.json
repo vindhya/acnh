@@ -1,0 +1,33 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "FishCritter",
+      "field": "timeStartAlt",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "FishCritter",
+      "field": "timeEndAlt",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "BugCritter",
+      "field": "timeStartAlt",
+      "type": "Int",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "BugCritter",
+      "field": "timeEndAlt",
+      "type": "Int",
+      "arity": "Optional"
+    }
+  ]
+}

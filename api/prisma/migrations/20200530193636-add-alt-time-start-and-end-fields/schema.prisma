@@ -1,6 +1,6 @@
 datasource DS {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -23,7 +23,6 @@ model FishCritter {
   monthsSouthHemi String
   timeStartAlt    Int?
   timeEndAlt      Int?
-  shadowSize      Int
 }
 
 model BugCritter {

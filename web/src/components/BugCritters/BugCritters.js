@@ -50,6 +50,8 @@ const BugCrittersList = ({ bugCritters }) => {
             <th>timeEnd</th>
             <th>monthsNorthHemi</th>
             <th>monthsSouthHemi</th>
+            <th>timeStartAlt</th>
+            <th>timeEndAlt</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -65,6 +67,8 @@ const BugCrittersList = ({ bugCritters }) => {
               <td>{truncate(bugCritter.timeEnd)}</td>
               <td>{truncate(bugCritter.monthsNorthHemi)}</td>
               <td>{truncate(bugCritter.monthsSouthHemi)}</td>
+              <td>{truncate(bugCritter.timeStartAlt)}</td>
+              <td>{truncate(bugCritter.timeEndAlt)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

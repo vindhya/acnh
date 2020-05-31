@@ -1,3 +1,5 @@
 # Prisma Migrate lockfile v1
 
 20200530171647-create-fish-and-bug-models
+20200530193636-add-alt-time-start-and-end-fields
+20200530212913-add-shadow-size-to-fish-model

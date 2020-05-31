@@ -9,6 +9,9 @@ export const schema = gql`
     timeEnd: Int!
     monthsNorthHemi: String!
     monthsSouthHemi: String!
+    shadowSize: Int!
+    timeStartAlt: Int
+    timeEndAlt: Int
   }
 
   type Query {
@@ -25,6 +28,9 @@ export const schema = gql`
     timeEnd: Int!
     monthsNorthHemi: String!
     monthsSouthHemi: String!
+    shadowSize: Int!
+    timeStartAlt: Int
+    timeEndAlt: Int
   }
 
   input UpdateFishCritterInput {
@@ -36,6 +42,9 @@ export const schema = gql`
     timeEnd: Int
     monthsNorthHemi: String
     monthsSouthHemi: String
+    timeStartAlt: Int
+    timeEndAlt: Int
+    shadowSize: Int
   }
 
   type Mutation {

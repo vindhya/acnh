@@ -93,7 +93,7 @@ const BugCritterForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Time start
+          Start Time
         </Label>
         <TextField
           name="timeStart"
@@ -109,7 +109,7 @@ const BugCritterForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Time end
+          End Time
         </Label>
         <TextField
           name="timeEnd"
@@ -121,11 +121,41 @@ const BugCritterForm = (props) => {
         <FieldError name="timeEnd" className="rw-field-error" />
 
         <Label
+          name="timeStartAlt"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Alternate Start Time
+        </Label>
+        <TextField
+          name="timeStartAlt"
+          defaultValue={props.bugCritter?.timeStartAlt}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+        <FieldError name="timeStartAlt" className="rw-field-error" />
+
+        <Label
+          name="timeEndAlt"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Alternate End Time
+        </Label>
+        <TextField
+          name="timeEndAlt"
+          defaultValue={props.bugCritter?.timeEnd}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+        <FieldError name="timeEndAlt" className="rw-field-error" />
+
+        <Label
           name="monthsNorthHemi"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Months north hemi
+          Months - Northern Hemisphere
         </Label>
         <TextField
           name="monthsNorthHemi"
@@ -141,7 +171,7 @@ const BugCritterForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Months south hemi
+          Months - Southern Hemisphere
         </Label>
         <TextField
           name="monthsSouthHemi"

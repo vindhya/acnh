@@ -1,5 +1,4 @@
 import { Link, routes } from '@redwoodjs/router'
-
 import BugCritters from 'src/components/BugCritters'
 
 export const QUERY = gql`
@@ -14,6 +13,8 @@ export const QUERY = gql`
       timeEnd
       monthsNorthHemi
       monthsSouthHemi
+      timeStartAlt
+      timeEndAlt
     }
   }
 `
@@ -28,10 +29,7 @@ export const Empty = () => {
   return (
     <div className="rw-text-center">
       {'No bugCritters yet. '}
-      <Link
-        to={routes.newBugCritter()}
-        className="rw-link"
-      >
+      <Link to={routes.newBugCritter()} className="rw-link">
         {'Create one?'}
       </Link>
     </div>

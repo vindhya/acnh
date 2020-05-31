@@ -1,0 +1,12 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "FishCritter",
+      "field": "shadowSize",
+      "type": "Int",
+      "arity": "Required"
+    }
+  ]
+}

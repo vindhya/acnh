@@ -1,5 +1,4 @@
 import { Link, routes } from '@redwoodjs/router'
-
 import FishCritters from 'src/components/FishCritters'
 
 export const QUERY = gql`
@@ -10,10 +9,13 @@ export const QUERY = gql`
       image
       price
       location
+      shadowSize
       timeStart
       timeEnd
       monthsNorthHemi
       monthsSouthHemi
+      timeStartAlt
+      timeEndAlt
     }
   }
 `
@@ -28,10 +30,7 @@ export const Empty = () => {
   return (
     <div className="rw-text-center">
       {'No fishCritters yet. '}
-      <Link
-        to={routes.newFishCritter()}
-        className="rw-link"
-      >
+      <Link to={routes.newFishCritter()} className="rw-link">
         {'Create one?'}
       </Link>
     </div>
