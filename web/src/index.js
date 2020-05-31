@@ -8,6 +8,7 @@ import Routes from 'src/Routes'
 
 import './scaffold.css'
 import './index.css'
+import HemisphereProvider from './context/HemisphereProvider'
 
 netlifyIdentity.init()
 
@@ -15,7 +16,9 @@ ReactDOM.render(
   <FatalErrorBoundary page={FatalErrorPage}>
     <AuthProvider client={netlifyIdentity} type="netlify">
       <RedwoodProvider>
-        <Routes />
+        <HemisphereProvider>
+          <Routes />
+        </HemisphereProvider>
       </RedwoodProvider>
     </AuthProvider>
   </FatalErrorBoundary>,
