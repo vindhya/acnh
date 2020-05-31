@@ -1,4 +1,11 @@
-export const months = {
+export const HEMISPHERES = {
+  NORTH: 'northern',
+  SOUTH: 'southern',
+}
+
+export const LOCALSTORAGE_HEMI = 'acnhcrittersHemisphere'
+
+export const MONTHS = {
   1: 'january',
   2: 'february',
   3: 'march',

@@ -1,6 +1,9 @@
+import { useContext } from 'react'
 import BugDetail from 'src/components/BugDetail'
 
+import { HemisphereContext } from 'src/context/HemisphereProvider'
 import { inTimeRange, inMonthRange } from 'src/utils'
+import { HEMISPHERES } from 'src/constants'
 
 export const QUERY = gql`
   query {
@@ -27,9 +30,11 @@ export const Empty = () => <div>Empty</div>
 export const Failure = ({ error }) => <div>Error: {error.message}</div>
 
 export const Success = ({ bugs }) => {
+  const [hemisphere, setHemisphere] = useContext(HemisphereContext)
   const currentDate = new Date()
   const currentHour = currentDate.getHours()
   const currentMonth = currentDate.getMonth()
+  console.log('bugs', bugs)
 
   return bugs
     .filter(
@@ -48,7 +53,13 @@ export const Success = ({ bugs }) => {
           timeEnd,
           timeStartAlt,
           timeEndAlt
-        ) && inMonthRange(currentMonth, JSON.parse(monthsNorthHemi))
+        ) &&
+        inMonthRange(
+          currentMonth,
+          JSON.parse(
+            hemisphere === HEMISPHERES.SOUTH ? monthsSouthHemi : monthsNorthHemi
+          )
+        )
     )
     .map((bug) => <BugDetail key={bug.id} bug={bug} />)
 }

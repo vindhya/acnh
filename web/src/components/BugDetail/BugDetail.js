@@ -1,9 +1,10 @@
 import { Link, routes } from '@redwoodjs/router'
 
-import { months } from 'src/constants'
+import { MONTHS } from 'src/constants'
 
 const BugDetail = ({ bug }) => {
-  const monthsData = JSON.parse(bug.monthsNorthHemi)
+  const monthsNorth = JSON.parse(bug.monthsNorthHemi)
+  const monthsSouth = JSON.parse(bug.monthsSouthHemi)
 
   return (
     <article>
@@ -24,9 +25,15 @@ const BugDetail = ({ bug }) => {
         )}
       </div>
       <div>
-        Months Available:{' '}
-        {monthsData.map((monthNum) => (
-          <span key={monthNum}>{months[monthNum]}, </span>
+        Months Available (Northern Hemisphere):{' '}
+        {monthsNorth.map((monthNum) => (
+          <span key={monthNum}>{MONTHS[monthNum]}, </span>
+        ))}
+      </div>
+      <div>
+        Months Available (Southern Hemisphere):{' '}
+        {monthsSouth.map((monthNum) => (
+          <span key={monthNum}>{MONTHS[monthNum]}, </span>
         ))}
       </div>
     </article>
