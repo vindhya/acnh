@@ -1,6 +1,6 @@
 import BugDetail from 'src/components/BugDetail'
 
-import { inTimeRange } from 'src/utils'
+import { inTimeRange, inMonthRange } from 'src/utils'
 
 export const QUERY = gql`
   query {
@@ -14,6 +14,8 @@ export const QUERY = gql`
       timeEnd
       monthsNorthHemi
       monthsSouthHemi
+      timeStartAlt
+      timeEndAlt
     }
   }
 `
@@ -27,6 +29,7 @@ export const Failure = ({ error }) => <div>Error: {error.message}</div>
 export const Success = ({ bugs }) => {
   const currentDate = new Date()
   const currentHour = currentDate.getHours()
+  const currentMonth = currentDate.getMonth()
 
   return bugs
     .filter(
@@ -37,7 +40,15 @@ export const Success = ({ bugs }) => {
         timeEndAlt,
         monthsNorthHemi,
         monthsSouthHemi,
-      }) => inTimeRange(18, timeStart, timeEnd, timeStartAlt, timeEndAlt)
+        name,
+      }) =>
+        inTimeRange(
+          currentHour,
+          timeStart,
+          timeEnd,
+          timeStartAlt,
+          timeEndAlt
+        ) && inMonthRange(currentMonth, JSON.parse(monthsNorthHemi))
     )
     .map((bug) => <BugDetail key={bug.id} bug={bug} />)
 }

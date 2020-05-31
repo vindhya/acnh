@@ -17,6 +17,11 @@ const BugDetail = ({ bug }) => {
       <div>Location: {bug.location}</div>
       <div>
         Time of Day: {bug.timeStart} - {bug.timeEnd}
+        {bug.timeStartAlt && (
+          <span>
+            , {bug.timeStartAlt} - {bug.timeEndAlt}
+          </span>
+        )}
       </div>
       <div>
         Months Available:{' '}

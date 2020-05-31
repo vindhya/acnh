@@ -21,7 +21,9 @@ export const parseCritterForGql = (data) => {
 }
 
 const checkTime = (currentHour, startingTime, endingTime) => {
-  if (startingTime === endingTime) {
+  if (startingTime === null || endingTime === null) {
+    return false
+  } else if (startingTime === endingTime) {
     return true
   } else if (
     endingTime > startingTime &&
@@ -49,4 +51,5 @@ export const inTimeRange = (
   checkTime(currentHour, timeStart, timeEnd) ||
   checkTime(currentHour, timeStartAlt, timeEndAlt)
 
-export const inMonthRange = () => {}
+export const inMonthRange = (currentMonth, months) =>
+  months.includes(currentMonth)
