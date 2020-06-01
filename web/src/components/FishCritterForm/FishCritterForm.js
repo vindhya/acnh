@@ -7,7 +7,7 @@ import {
   Submit,
 } from '@redwoodjs/web'
 
-import { parseCritterForGql } from 'src/utils'
+import { parseCritterForGql } from 'src/services/parseCritterForGql'
 
 const FishCritterForm = (props) => {
   const onSubmit = (data) => {
