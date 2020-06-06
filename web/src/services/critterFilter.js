@@ -16,7 +16,7 @@ const checkTime = (currentHour, startingTime, endingTime) => {
     return true
   } else if (
     endingTime < startingTime &&
-    (currentHour > startingTime || currentHour < endingTime)
+    (currentHour >= startingTime || currentHour < endingTime)
   ) {
     return true
   } else {
@@ -37,34 +37,34 @@ export const inTimeRange = (
 export const inMonthRange = (currentMonth, months) =>
   months.includes(currentMonth)
 
-export const critterFilter = (bugs, currentDate) => {
+export const critterFilter = (critter, currentDate) => {
   const [hemisphere, setHemisphere] = useContext(HemisphereContext)
   const currentHour = currentDate.getHours()
   const currentMonth = currentDate.getMonth()
 
-  return bugs
-    .filter(
-      ({
+  return critter.filter(
+    ({
+      timeStart,
+      timeEnd,
+      timeStartAlt,
+      timeEndAlt,
+      monthsNorthHemi,
+      monthsSouthHemi,
+    }) => {
+      const time = inTimeRange(
+        currentHour,
         timeStart,
         timeEnd,
         timeStartAlt,
-        timeEndAlt,
-        monthsNorthHemi,
-        monthsSouthHemi,
-      }) =>
-        inTimeRange(
-          currentHour,
-          timeStart,
-          timeEnd,
-          timeStartAlt,
-          timeEndAlt
-        ) &&
-        inMonthRange(
-          currentMonth,
-          JSON.parse(
-            hemisphere === HEMISPHERES.SOUTH ? monthsSouthHemi : monthsNorthHemi
-          )
+        timeEndAlt
+      )
+      const month = inMonthRange(
+        currentMonth,
+        JSON.parse(
+          hemisphere === HEMISPHERES.SOUTH ? monthsSouthHemi : monthsNorthHemi
         )
-    )
-    .sort((a, b) => b.price - a.price)
+      )
+      return time && month
+    }
+  )
 }

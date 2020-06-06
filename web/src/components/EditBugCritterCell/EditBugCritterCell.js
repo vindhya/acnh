@@ -14,6 +14,8 @@ export const QUERY = gql`
       timeEnd
       monthsNorthHemi
       monthsSouthHemi
+      timeStartAlt
+      timeEndAlt
     }
   }
 `
@@ -28,11 +30,14 @@ const UPDATE_BUG_CRITTER_MUTATION = gql`
 export const Loading = () => <div>Loading...</div>
 
 export const Success = ({ bugCritter }) => {
-  const [updateBugCritter, { loading, error }] = useMutation(UPDATE_BUG_CRITTER_MUTATION, {
-    onCompleted: () => {
-      navigate(routes.bugCritters())
-    },
-  })
+  const [updateBugCritter, { loading, error }] = useMutation(
+    UPDATE_BUG_CRITTER_MUTATION,
+    {
+      onCompleted: () => {
+        navigate(routes.bugCritters())
+      },
+    }
+  )
 
   const onSave = (input, id) => {
     updateBugCritter({ variables: { id, input } })
@@ -41,10 +46,17 @@ export const Success = ({ bugCritter }) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit BugCritter {bugCritter.id}</h2>
+        <h2 className="rw-heading rw-heading-secondary">
+          Edit BugCritter {bugCritter.id}
+        </h2>
       </header>
       <div className="rw-segment-main">
-        <BugCritterForm bugCritter={bugCritter} onSave={onSave} error={error} loading={loading} />
+        <BugCritterForm
+          bugCritter={bugCritter}
+          onSave={onSave}
+          error={error}
+          loading={loading}
+        />
       </div>
     </div>
   )

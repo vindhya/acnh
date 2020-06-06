@@ -1,13 +1,6 @@
-import { useContext } from 'react'
 import BugDetail from 'src/components/BugDetail'
 
-import { HemisphereContext } from 'src/context/HemisphereProvider'
-import {
-  critterFilter,
-  inTimeRange,
-  inMonthRange,
-} from 'src/services/critterFilter'
-import { HEMISPHERES } from 'src/constants'
+import { critterFilter } from 'src/services/critterFilter'
 
 export const QUERY = gql`
   query {

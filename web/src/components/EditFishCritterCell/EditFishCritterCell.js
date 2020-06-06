@@ -10,15 +10,21 @@ export const QUERY = gql`
       image
       price
       location
+      shadowSize
       timeStart
       timeEnd
       monthsNorthHemi
       monthsSouthHemi
+      timeStartAlt
+      timeEndAlt
     }
   }
 `
 const UPDATE_FISH_CRITTER_MUTATION = gql`
-  mutation UpdateFishCritterMutation($id: Int!, $input: UpdateFishCritterInput!) {
+  mutation UpdateFishCritterMutation(
+    $id: Int!
+    $input: UpdateFishCritterInput!
+  ) {
     updateFishCritter(id: $id, input: $input) {
       id
     }
@@ -28,11 +34,14 @@ const UPDATE_FISH_CRITTER_MUTATION = gql`
 export const Loading = () => <div>Loading...</div>
 
 export const Success = ({ fishCritter }) => {
-  const [updateFishCritter, { loading, error }] = useMutation(UPDATE_FISH_CRITTER_MUTATION, {
-    onCompleted: () => {
-      navigate(routes.fishCritters())
-    },
-  })
+  const [updateFishCritter, { loading, error }] = useMutation(
+    UPDATE_FISH_CRITTER_MUTATION,
+    {
+      onCompleted: () => {
+        navigate(routes.fishCritters())
+      },
+    }
+  )
 
   const onSave = (input, id) => {
     updateFishCritter({ variables: { id, input } })
@@ -41,10 +50,17 @@ export const Success = ({ fishCritter }) => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit FishCritter {fishCritter.id}</h2>
+        <h2 className="rw-heading rw-heading-secondary">
+          Edit FishCritter {fishCritter.id}
+        </h2>
       </header>
       <div className="rw-segment-main">
-        <FishCritterForm fishCritter={fishCritter} onSave={onSave} error={error} loading={loading} />
+        <FishCritterForm
+          fishCritter={fishCritter}
+          onSave={onSave}
+          error={error}
+          loading={loading}
+        />
       </div>
     </div>
   )

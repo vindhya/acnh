@@ -1,3 +1,6 @@
+import { critterFilter } from 'src/services/critterFilter'
+import { orderDescPrice } from 'src/services/orderCritters'
+
 export const QUERY = gql`
   query {
     bugs: bugCritters {
@@ -36,6 +39,11 @@ export const Empty = () => <div>Empty</div>
 
 export const Failure = ({ error }) => <div>Error: {error.message}</div>
 
-export const Success = ({ critterList }) => {
-  return JSON.stringify(critterList)
+export const Success = ({ bugs, fish }) => {
+  const currentDate = new Date()
+  const availableBugs = critterFilter(bugs, currentDate)
+  const availableFish = critterFilter(fish, currentDate)
+  const orderedCritters = orderDescPrice(availableBugs, availableFish)
+  console.log('ordered critters', orderedCritters)
+  return JSON.stringify(availableFish)
 }

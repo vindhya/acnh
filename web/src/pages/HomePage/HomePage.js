@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import MainLayout from 'src/layouts/MainLayout'
+import CritterListCell from 'src/components/CritterListCell'
 import BugsListCell from 'src/components/BugsListCell'
 
 import { HemisphereContext } from 'src/context/HemisphereProvider'
@@ -11,8 +12,8 @@ const HomePage = () => {
   return (
     <MainLayout>
       <div>
-        You're in the <strong>{hemisphere} hemisphere</strong> right now! But,
-        feel free to check out another one:
+        You&apos;re in the <strong>{hemisphere} hemisphere</strong> right now!
+        But, feel free to check out another one:
       </div>
       <button onClick={() => setHemisphere(HEMISPHERES.NORTH)}>
         Northern Hemisphere
@@ -20,7 +21,8 @@ const HomePage = () => {
       <button onClick={() => setHemisphere(HEMISPHERES.SOUTH)}>
         Southern Hemisphere
       </button>
-      <div>CritterList:</div>
+      <div>CritterListCell:</div>
+      <CritterListCell />
       <div>BugsListCell:</div>
       <BugsListCell />
     </MainLayout>

@@ -144,7 +144,7 @@ const BugCritterForm = (props) => {
         </Label>
         <TextField
           name="timeEndAlt"
-          defaultValue={props.bugCritter?.timeEnd}
+          defaultValue={props.bugCritter?.timeEndAlt}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
         />
