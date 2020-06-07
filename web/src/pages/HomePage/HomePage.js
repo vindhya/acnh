@@ -21,10 +21,7 @@ const HomePage = () => {
       <button onClick={() => setHemisphere(HEMISPHERES.SOUTH)}>
         Southern Hemisphere
       </button>
-      <div>CritterListCell:</div>
       <CritterListCell />
-      <div>BugsListCell:</div>
-      <BugsListCell />
     </MainLayout>
   )
 }

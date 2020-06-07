@@ -1,3 +1,5 @@
+import CritterDetail from 'src/components/CritterDetail'
+
 import { critterFilter } from 'src/services/critterFilter'
 import { orderDescPrice } from 'src/services/orderCritters'
 
@@ -44,6 +46,8 @@ export const Success = ({ bugs, fish }) => {
   const availableBugs = critterFilter(bugs, currentDate)
   const availableFish = critterFilter(fish, currentDate)
   const orderedCritters = orderDescPrice(availableBugs, availableFish)
-  console.log('ordered critters', orderedCritters)
-  return JSON.stringify(availableFish)
+
+  return orderedCritters.map((critter) => (
+    <CritterDetail key={critter.id + critter.__typename} critter={critter} />
+  ))
 }
