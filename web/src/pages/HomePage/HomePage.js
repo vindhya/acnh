@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import MainLayout from 'src/layouts/MainLayout'
 import CritterListCell from 'src/components/CritterListCell'
-import BugsListCell from 'src/components/BugsListCell'
 
 import { HemisphereContext } from 'src/context/HemisphereProvider'
 import { HEMISPHERES } from 'src/constants'
