@@ -1,8 +1,6 @@
 import { MONTHS } from 'src/constants'
 
 const CritterDetail = ({ critter }) => {
-  console.log('monthsNorthHemi', monthsNorthHemi)
-  console.log('monthsSouthHemi', monthsSouthHemi)
   const {
     id,
     image,

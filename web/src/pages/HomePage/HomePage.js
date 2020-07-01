@@ -4,22 +4,30 @@ import CritterListCell from 'src/components/CritterListCell'
 
 import { HemisphereContext } from 'src/context/HemisphereProvider'
 import { HEMISPHERES } from 'src/constants'
+import { oppositeHemi } from 'src/services/oppositeHemi'
+
+const textHemi = (hemisphere) =>
+  hemisphere === HEMISPHERES.NORTH ? 'northern' : 'southern'
 
 const HomePage = () => {
-  const [hemisphere, setHemisphere] = useContext(HemisphereContext)
+  const [hemisphere, toggleHemisphere] = useContext(HemisphereContext)
 
   return (
     <MainLayout>
       <div>
-        You&apos;re in the <strong>{hemisphere} hemisphere</strong> right now!
-        But, feel free to check out another one:
+        You&apos;re looking at creatures in the{' '}
+        <strong className="capitalize">
+          {textHemi(hemisphere)} hemisphere
+        </strong>
+        . Do you want to switch to the{' '}
+        <button
+          onClick={() => toggleHemisphere()}
+          className="capitalize underline"
+        >
+          {textHemi(oppositeHemi(hemisphere))} hemisphere
+        </button>
+        ?
       </div>
-      <button onClick={() => setHemisphere(HEMISPHERES.NORTH)}>
-        Northern Hemisphere
-      </button>
-      <button onClick={() => setHemisphere(HEMISPHERES.SOUTH)}>
-        Southern Hemisphere
-      </button>
       <CritterListCell />
     </MainLayout>
   )

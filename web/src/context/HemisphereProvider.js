@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { HEMISPHERES, LOCALSTORAGE_HEMI } from 'src/constants'
+import { oppositeHemi } from 'src/services/oppositeHemi'
 
 const initialHemi = localStorage.getItem(LOCALSTORAGE_HEMI) || HEMISPHERES.NORTH
 export const HemisphereContext = React.createContext(initialHemi)
@@ -15,8 +16,13 @@ const HemisphereProvider = ({ children }) => {
     localStorage.setItem(LOCALSTORAGE_HEMI, newHemi)
   }
 
+  const toggleHemiAndLocalStorage = () => {
+    const newHemi = oppositeHemi(hemisphere)
+    setHemiAndLocalStorage(newHemi)
+  }
+
   return (
-    <HemisphereContext.Provider value={[hemisphere, setHemiAndLocalStorage]}>
+    <HemisphereContext.Provider value={[hemisphere, toggleHemiAndLocalStorage]}>
       {children}
     </HemisphereContext.Provider>
   )

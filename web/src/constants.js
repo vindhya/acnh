@@ -1,6 +1,6 @@
 export const HEMISPHERES = {
-  NORTH: 'northern',
-  SOUTH: 'southern',
+  NORTH: 'north',
+  SOUTH: 'south',
 }
 
 export const LOCALSTORAGE_HEMI = 'acnhcrittersHemisphere'
